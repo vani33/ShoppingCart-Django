@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">EasyCart</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="home">Home</a></li>
+                <li><a href="allCategories">All Categories</a></li>
+                <li><a href="contactUs">Contact us</a></li>
+                <li><a href="register">Register</a></li>
+                <li><a href="signin">Signin</a></li>
+            </ul>
+        </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons"style="color: #4EC485">shopping_cart</i>
+                    <p>Choose & Buy Groceries from our EasyCart.</p>
+                    <p>Make your Life easy. Shop Now !</p>
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="/"><img src="https://www.pymnts.com/wp-content/uploads/2021/03/retail-grocery.jpg" alt="Shopping"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons" style="color: orange">local_shipping</i>
+<!--                    <p><b>Home Delivery Available</b></p>-->
+
+                    <p>Sit back and Relax...You can place your order and receive it within 48 hours</p>
+                    <p>Available at 24*7 </p>
+                    <p>Call us at 018-180034789</p>
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="/"><img src="https://www.handpickd.in/images/thumbs/0000012_NOP%20Banner-1_1.png" alt="Home Delivery"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons" style="color: #F83232">coronavirus</i>
+                    <p>We are striving hard to deliver the safest products in these tough times.</p>
+                    <p>Stay Home, Stay Safe, Shop Easy from EasyCart!</p>
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="/"><img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/03/pjimage-1583501523.jpg" alt="CoronoVirus Safety"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="container" style="background-color: #D9DD63">
+    <h4 style="text-align: center;color: brown">Special Price</h4>
+</div>
+
+<div class="row">
+    <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+                <a href="signin"><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/shopping-bag-full-of-fresh-vegetables-and-fruits-royalty-free-image-1128687123-1564523576.jpg" width="40px" height="200px" alt=""></a>
+            </div>
+            <div class="card-content">
+                <p><b>All Fresh!!</b></p>
+                <p>Buy more and Save upto Rs.350</p>
+            </div>
+            <div class="card-action">
+                <a href="/">Get at flat Rs.1 </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+                <a href="signin"><img src="data:image/jpeg;base64,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" width="40px" height="200px" alt=""></a>
+            </div>
+            <div class="card-content">
+                <p><b>Recommended for you</b></p>
+                <p>Discounts Available!</p>
+            </div>
+            <div class="card-action">
+                <a href="/">Buy more, save extra 3%</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+                <a href="signin"><img src="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/9688850f-f59a-4a8c-af90-686efeadba94" width="40px" height="200px" alt=""></a>
+            </div>
+            <div class="card-content">
+                <p><b>Electronics & Accessories</b></p>
+                <p>Up to 80% Off</p>
+            </div>
+            <div class="card-action">
+                <a href="/">Starting from 399 </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
+
+<!--#EE6E73-->

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">EasyCart {{ searchCategory }}</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="home">Home</a></li>
+                <li><a href="categories" inlist="categoryList">All Categories
+<!--                    <select inlist="categoryList" class="form-control">-->
+<!--                        {% for cat in category %}-->
+<!--                            <option value="{{ cat.id }}">{{ cat.nameOfCategory }}</option>-->
+<!--                        {% endfor %}-->
+<!--                    </select>-->
+                    </a>
+                </li>
+                <li><a href="/">My orders</a></li>
+                <li><a href="cart">My Cart</a></li>
+                <li><a href="wishlist">My Wishlist</a></li>
+                <li><a href="/">Hi,{{user.firstName}}</a></li>
+                <li><a href="logout">Logout</a></li>
+
+
+            </ul>
+        </div>
+</nav>
+
+<h3 style="text-align: center; color: green"><b>{{searchCategory}}</b></h3>
+<div class="row">
+    {% if subCategory %}
+        {% for category in subCategory %}
+            <h4 style="text-align: center;color: brown">{{category.nameOfCategory}}</h4>
+                <div class="row">
+                    {% for sub in subCatProducts %}
+                        {% for product in sub %}
+                            <div class="col s3">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <a href="/"><img src= "{{ product.image.url }}" width="40px" height="200px" alt=""></a>
+                                    </div>
+                                    <div class="card-content">
+                                        <a href="/" style="color:black"><b>{{ product.nameOfProduct }}</b></a>
+                                        <p style="color: orange">{{ product.price}} (Qty in gms/no) - {{product.quantity}} </p>
+                                        <p class="light" style="color: green">Buy more & save extra 5%</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="">
+                                            <button style="height:40px;width:100px">Add to Cart</button>
+                                            <i class="small material-icons"style="color: grey" >favorite_border</i>
+                                            <button style="height:40px;width:80px">Buy Now</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+
+        {% endfor %}
+
+
+    {% else %}
+
+            {% for product in product %}
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="{% url 'productForm' product.id %}"><img src= "{{ product.image.url }}" width="40px" height="200px" alt=""></a>
+                        </div>
+                        <div class="card-content">
+                            <a href="{% url 'productForm' product.id %}" style="color:black"><b>{{ product.nameOfProduct }}</b></a>
+                            <p style="color: orange">{{ product.price}} (Qty in gms/no) - {{product.quantity}} </p>
+                            <p class="light" style="color: green">Buy more & save extra 5% </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="">
+                                <p>
+                                    <a href="{% url 'addToCart' product.id %}" class="btn btn-primary" style="float: left;">
+                                        <i class="small material-icons" style="color: white" >add_shopping_cart</i>Add to Cart
+                                    </a>
+                                    <a href="{% url 'productForm' product.id %}" class="btn btn-primary" style="float: right;">
+                                        <i class="small material-icons" style="color: white" >attach_money</i>Buy now
+                                    </a>
+                                    <a href="{% url 'addToWishlist' product.id %}" class="btn btn-primary">
+                                        <i class="small material-icons" style="color: white" >favorite_border</i>
+                                    </a>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+    {% endif %}
+</div>
+{% endblock content %}

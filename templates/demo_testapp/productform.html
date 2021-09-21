@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+.center {
+      margin: 0;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+</style>
+
+<nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">EasyCart Orders</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="home">Home</a></li>
+                <li><a href="categories" inlist="categoryList">All Categories
+<!--                    <select inlist="categoryList" class="form-control">-->
+<!--                        {% for cat in category %}-->
+<!--                            <option value="{{ cat.id }}">{{ cat.nameOfCategory }}</option>-->
+<!--                        {% endfor %}-->
+<!--                    </select>-->
+                    </a>
+                </li>
+                <li><a href="/">My orders</a></li>
+                <li><a href="cart">My Cart</a></li>
+                <li><a href="wishlist">My Wishlist</a></li>
+                <li><a href="/">Hi,{{user.firstName}}</a></li>
+                <li><a href="logout">Logout</a></li>
+
+
+            </ul>
+        </div>
+</nav>
+
+
+<div class="container"  style="position: relative;" >
+    <a href="categories"><h6>Back</h6></a>
+    <h4 style="text-align:center;color: red"><b>{{product.nameOfProduct}}</b></h4>
+    <div style="text-align:center">
+        <img src= "{{ product.image.url }}" style= width="40%" height="40%" alt="">
+    </div>
+    <p style="text-align:center"><b>Price:{{product.price}}</b></p>
+    <p style="text-align:center"><b>Quantity:{{product.quantity}}</b></p>
+    <div class="center">
+        <a href="{% url 'payment' %}"><button style="text-align:center;height:40px;width:400px"> Place Order</button></a>
+    </div>
+
+</div>
+
+{% endblock content %}

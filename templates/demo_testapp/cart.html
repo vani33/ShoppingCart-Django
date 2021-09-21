@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">My Cart</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="categories">All Categories</a></li>
+                <li><a href="/">My orders</a></li>
+                <li><a href="cart">My Cart</a></li>
+                <li><a href="wishlist">My Wishlist</a></li>
+                <li><a href="/">Hi,{{user.firstName}}</a></li>
+                <li><a href="logout">Logout</a></li>
+            </ul>
+        </div>
+</nav>
+
+<div style="text-align: center; color: green">
+            {% for message in messages %}
+                <h6>{{message}}</h6>
+            {% endfor%}
+</div>
+<div class="row">
+
+    {% for product in productsList %}
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="{% url 'productForm' product.id %}"><img src= "{{ product.image.url }}" width="40px" height="200px" alt=""></a>
+                        </div>
+                        <div class="card-content">
+                            <a href="{% url 'productForm' product.id %}" style="color:black"><b>{{ product.nameOfProduct }}</b></a>
+                            <p style="color: orange">{{ product.price}} (Qty in gms/no) - {{product.quantity}} </p>
+                            <p class="light" style="color: green">Buy more & save extra 5% </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="">
+                                <p>
+                                    <a href="{% url 'removeFromCart' product.id %}" class="btn btn-primary" style="float: left;">
+                                        <i class="small material-icons"style="color: white" >add_shopping_cart</i>Remove
+                                    </a>
+                                    <a href="{% url 'productForm' product.id %}" class="btn btn-primary" style="float: right;">
+                                        <i class="small material-icons"style="color: white" >attach_money</i>Buy
+                                    </a>
+                                    <a href="{% url 'moveToWishlist' product.id %}" class="btn btn-primary">Move to
+                                        <i class="small material-icons"style="color: white" >favorite_border</i>
+                                    </a>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    {% endfor %}
+
+</div>
+{% endblock content %}

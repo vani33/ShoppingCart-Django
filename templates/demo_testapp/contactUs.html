@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">EasyCart Contact</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="home">Home</a></li>
+                <li><a href="sigin">All Categories</a></li>
+                <li><a href="register">Register</a></li>
+                <li><a href="signin">Signin</a></li>
+            </ul>
+        </div>
+</nav>
+
+<div class="container">
+    <img src="data:image/png;base64,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" width="90%" height="50%" alt="Easy Cart Logo">
+</div>
+
+ <div class="col s4">
+     <div class="center">
+         <i class="large material-icons" style="color: #EE6E73">contact_support</i>
+         <p>Call us at : 190-6738941389 | 190-6738941379</p>
+         <p>Drop a mail to : easycartforyou@gmail.com</p>
+         <p>123/A, Rajiv Gandhi Colony, Indhira Nagar, Tirupati</p>
+
+     </div>
+ </div>
+
+{% endblock content%}

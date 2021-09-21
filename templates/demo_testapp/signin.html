@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">EasyCart Login</a>
+            <ul id="nav-mobile" class="right">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="register">Register</a></li>
+            </ul>
+        </div>
+</nav>
+<h5 style="text-align: center; color: #EE6E73">Welcome to EasyCart Login page</h5>
+<div class="container">
+        <form action="{% url 'signin' %}" method="post">
+                {% csrf_token %}
+
+                <div style="text-align: center; color: green">
+                        {% for message in messages %}
+                            <h6>{{message}}</h6>
+                        {% endfor%}
+                </div>
+
+                <input type="email" name="email" placeholder="Email Id">
+                <input type="password" name="password" placeholder="Password">
+
+                <button class="btn waves-effect waves-light" type="submit" name="action">Log in
+                    <i class="material-icons right">send</i>
+                </button>
+        </form>
+</div>
+{% endblock content %}
